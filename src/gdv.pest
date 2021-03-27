@@ -1,0 +1,297 @@
+// Vorsatz Teildatensatz 1 Anfang
+satzart_vorsatz = _{"0001"}
+vu_nummer = {ANY{5}}
+absender = {ANY{30}}
+adressat = {ANY{30}}
+erstellungsdatum = {ASCII_DIGIT{16}}
+geschaeftsstelle = {ANY{10}}
+// Vorsatz, Adresssatz, Allgemeiner Vetragsteil
+satzart0001 = {ANY{3}}
+satzart0100 = {ANY{3}}
+satzart0200 = {ANY{3}}
+// Kraftfahrzeug
+satzart0210050 = {ANY{3}}
+satzart0220051 = {ANY{3}}
+satzart0220052 = {ANY{3}}
+satzart0220053 = {ANY{3}}
+satzart0220054 = {ANY{3}}
+satzart0220059 = {ANY{3}}
+// Haftpflicht
+satzart0210040 = {ANY{3}}
+satzart0220040 = {ANY{3}}
+// Unfall
+satzart0210030 = {ANY{3}}
+satzart0220030 = {ANY{3}}
+// Leben
+satzart0210010 = {ANY{3}}
+satzart0220010 = {ANY{3}}
+// VHV
+satzart0210130 = {ANY{3}}
+satzart0220130 = {ANY{3}}
+// Glas
+satzart0210110 = {ANY{3}}
+satzart0220110 = {ANY{3}}
+// VGV
+satzart0210140 = {ANY{3}}
+satzart0220140 = {ANY{3}}
+// Kranken
+satzart0210020 = {ANY{3}}
+satzart0220020 = {ANY{3}}
+// Rechtschutz
+satzart0210070 = {ANY{3}}
+satzart0220070 = {ANY{3}}
+// Feuer-Industrie/Gewerbliche Sachversicherung
+satzart0210 = {ANY{3}}
+satzart0220 = {ANY{3}}
+// VSV
+satzart0210510 = {ANY{3}}
+satzart0220510 = {ANY{3}}
+// Technische Versicherungen
+satzart0210tv = {ANY{3}}
+satzart0220tv = {ANY{3}}
+// Transport
+satzart0210t = {ANY{3}}
+satzart0220t = {ANY{3}}
+satzart0250e = {ANY{3}}
+satzart0260u = {ANY{3}}
+// Nicht einzeln definierte Sparten
+satzart0210nd = {ANY{3}}
+satzart0220nd = {ANY{3}}
+// Kraftfahrzeug-Baustein
+kfz_baustein = {ANY{3}}
+// Beteiligungsinformation
+beteiligungsinfo = {ANY{3}}
+// Inkasso
+allg_inkasso = {ANY{3}}
+inkasso_teil = {ANY{3}}
+allg_inkasso_0430 = {ANY{3}}
+// Schadeninformation
+schaden_0500 = {ANY{3}}
+// Nachsatz
+nachsatz_9999 = {ANY{3}}
+// Versicherungsteuerabrechnung
+vers_0420 = {ANY{3}}
+// Inkassoabrechnung
+inkasso_t = {ANY{3}}
+// Schadenabrechnung
+schaden_0550 = {ANY{3}}
+art_des_absenders = {ANY{1}}
+art_des_adressaten = {ANY{1}}
+vu_abrechnungsstelle = {ANY{2}}
+bestand_geschaeftsstelle = {ANY{2}}
+// Klauseln
+klausel_datensatz_0350 = {ANY{3}}
+leerstelle_vorsatz_1 = {ANY{10}}
+satznummer_vorsatz_1 = _{"1"}
+// Vorsatz Teildatensatz 1 Ende
+vorsatz_1 = {
+    satzart_vorsatz ~ vu_nummer ~ 
+    absender ~ adressat ~ erstellungsdatum ~ geschaeftsstelle ~
+    satzart0001 ~ satzart0100 ~ satzart0200 ~ satzart0210050 ~
+    satzart0220051 ~ satzart0220052 ~ satzart0220053 ~
+    satzart0220054 ~ satzart0220059 ~ satzart0210040 ~
+    satzart0220040 ~ satzart0210030 ~ satzart0220030 ~
+    satzart0210010 ~ satzart0220010 ~ satzart0210130 ~
+    satzart0220130 ~ satzart0210110 ~ satzart0220110 ~ satzart0210140 ~ satzart0220140 ~
+    satzart0210020 ~ satzart0220020 ~ satzart0210070 ~
+    satzart0220070 ~ satzart0210 ~ satzart0220 ~
+    satzart0210510 ~ satzart0220510 ~ satzart0210tv ~
+    satzart0220tv ~ satzart0210t ~ satzart0220t ~
+    satzart0250e ~ satzart0260u ~ satzart0210nd ~
+    satzart0220nd ~ kfz_baustein ~ beteiligungsinfo ~
+    allg_inkasso ~ inkasso_teil ~ allg_inkasso_0430 ~
+    schaden_0500 ~ nachsatz_9999 ~ vers_0420 ~
+    inkasso_t ~ schaden_0550 ~ art_des_absenders ~
+    art_des_adressaten ~ vu_abrechnungsstelle ~
+    bestand_geschaeftsstelle ~ klausel_datensatz_0350 ~
+    leerstelle_vorsatz_1 ~ satznummer_vorsatz_1 ~ NEWLINE*
+}
+
+// Vorsatz Teildatensatz 2 Anfang
+// Kraftfahrzeug
+satzart0211050 = {ANY{3}}
+satzart0221051 = {ANY{3}}
+satzart0221052 = {ANY{3}}
+satzart0221053 = {ANY{3}}
+satzart0221054 = {ANY{3}}
+satzart0221059 = {ANY{3}}
+satzart0221055 = {ANY{3}}
+// Haftpflicht
+satzart0211040 = {ANY{3}}
+satzart0221040 = {ANY{3}}
+// Unfall
+satzart0221030 = {ANY{3}}
+// Leben
+satzart0211010 = {ANY{3}}
+satzart0221010 = {ANY{3}}
+// VHV
+satzart0211130 = {ANY{3}}
+satzart0221130 = {ANY{3}}
+// Glas
+satzart0211110 = {ANY{3}}
+satzart0221110 = {ANY{3}}
+// VGV
+satzart0211140 = {ANY{3}}
+satzart0221140 = {ANY{3}}
+// Rechtschutz
+satzart0221070 = {ANY{3}}
+// Feuer-Industrie/Gewerbliche Sachversicherung
+satzart0211 = {ANY{3}}
+satzart0221 = {ANY{3}}
+// VSV
+satzart0221510 = {ANY{3}}
+// Technische Versicherungen
+satzart0211tv = {ANY{3}}
+satzart0221tv = {ANY{3}}
+// Transport
+satzart0211t = {ANY{3}}
+satzart0221t = {ANY{3}}
+satzart0251e = {ANY{3}}
+// Nicht einzeln definierte Sparten
+satzart0211nd = {ANY{3}}
+satzart0221nd = {ANY{3}}
+// Investmentfonds
+satzart0210550 = {ANY{3}}
+satzart0220550 = {ANY{3}}
+satzart0270550 = {ANY{3}}
+satzart0280550 = {ANY{3}}
+satzart0291550 = {ANY{3}}
+satzart0292550 = {ANY{3}}
+satzart0293550 = {ANY{3}}
+satzart0294550 = {ANY{3}}
+satzart0295550 = {ANY{3}}
+// Geschäftsvorfall - Vorsatz
+satzart0052 = {ANY{3}}
+// Adresssatz
+satzart0102 = {ANY{3}}
+// Allgemeiner Vertragsteil - Antrag
+satzart0212 = {ANY{3}}
+// Vorläufige Deckung
+satzart0352 = {ANY{3}}
+// Vorversicherung
+satzart0362 = {ANY{3}}
+// Beitrag - Versicherungsteuer
+satzart0382 = {ANY{3}}
+// Textnachricht/Datei
+satzart9950 = {ANY{3}}
+// Geschäftsvorfall - Nachsatz
+satzart9952 = {ANY{3}}
+// Bausparen
+satzart0210580 = {ANY{3}}
+satzart0220580 = {ANY{3}}
+// Antrag/Tarifierungsmerkmale
+produktspezifische_antragsdaten_0372 = {ANY{3}}
+produktspezifische_stammdaten_0600 = {ANY{3}}
+leerstelle_vorsatz_2 = {ANY{10}}
+satznummer_vorsatz_2 = _{"2"}
+// Vorsatz Teildatensatz 2 Ende
+vorsatz_2 = {
+    satzart_vorsatz ~ vu_nummer ~ absender ~ adressat ~ erstellungsdatum ~ geschaeftsstelle ~
+    satzart0211050 ~ satzart0221051 ~ satzart0221052 ~ satzart0221053 ~ satzart0221054 ~
+    satzart0221059 ~ satzart0221055 ~ satzart0211040 ~ satzart0221040 ~ satzart0221030 ~
+    satzart0211010 ~ satzart0221010 ~ satzart0211130 ~ satzart0221130 ~ satzart0211110 ~
+    satzart0221110 ~ satzart0211140 ~ satzart0221140 ~ satzart0221070 ~ satzart0211 ~
+    satzart0221 ~ satzart0221510 ~ satzart0211tv ~ satzart0221tv ~ satzart0211t ~
+    satzart0221t ~ satzart0251e ~ satzart0211nd ~ satzart0221nd ~ satzart0210550 ~
+    satzart0220550 ~ satzart0270550 ~ satzart0280550 ~ satzart0291550 ~ satzart0292550 ~
+    satzart0293550 ~ satzart0294550 ~ satzart0295550 ~ satzart0052 ~ satzart0102 ~ satzart0212 ~
+    satzart0352 ~ satzart0362 ~ satzart0382 ~ satzart9950 ~ satzart9952 ~ satzart0210580 ~
+    satzart0220580 ~ produktspezifische_antragsdaten_0372 ~ produktspezifische_stammdaten_0600 ~
+    leerstelle_vorsatz_2 ~ satznummer_vorsatz_2 ~ NEWLINE*
+}
+// Vorsatz Teildatensatz 3 Anfang
+// eVB-Nummer
+evb_nummer_0392 = {ANY{3}}
+// Fondsatz - Leben
+fondsatz_leben_0230 = {ANY{3}}
+// Allgemeine Antragsdaten
+allgemeine_antragsdaten_0202 = {ANY{3}}
+// Unfall
+unfallspezifische_antragsdaten_0222 = {ANY{3}}
+unfall_leistungsarten_0230 = {ANY{3}}
+// Rabatte und Zuschläge
+rabatte_und_zuschlaege_0390 = {ANY{3}}
+// Begleitdokumente und Signaturen
+begleitdokumente_und_siganturen_0342 = {ANY{3}}
+// MIME - Datei
+mime_datei_9951 = {ANY{3}}
+// Kapitalanlage
+satzart0210560 = {ANY{3}}
+satzart0220560 = {ANY{3}}
+// Baufinanzierung
+satzart0210570 = {ANY{3}}
+satzart0220570 = {ANY{3}}
+// Tierkranken
+satzart0210684 = {ANY{3}}
+satzart0220684 = {ANY{3}}
+// KFZ - Wechselkennzeichen W-AKZ
+kfz_wechselkennzeichen_w_akz = {ANY{3}}
+// Verbundene Gebäude - Versicherte Sachen und Kosten
+verbundene_gebaeude_versicherte_sachen_und_kosten = {ANY{3}}
+// Leben/Rente - Leistungsarten
+leben_rente_leistungsarten = {ANY{3}}
+leerstelle_vorsatz_3 = {ANY{109}}
+satznummer_vorsatz_3 = _{"3"}
+// Vorsatz Teildatensatz 3 Ende
+vorsatz_3 = {
+    satzart_vorsatz ~ vu_nummer ~ absender ~ adressat ~ erstellungsdatum ~ geschaeftsstelle ~
+    evb_nummer_0392 ~ fondsatz_leben_0230 ~ allgemeine_antragsdaten_0202 ~ unfallspezifische_antragsdaten_0222 ~
+    unfall_leistungsarten_0230 ~ rabatte_und_zuschlaege_0390 ~ begleitdokumente_und_siganturen_0342 ~
+    mime_datei_9951 ~ satzart0210560 ~ satzart0220560 ~ satzart0210570 ~ satzart0220570 ~ satzart0210684 ~
+    satzart0220684 ~ kfz_wechselkennzeichen_w_akz ~ verbundene_gebaeude_versicherte_sachen_und_kosten ~ 
+    leben_rente_leistungsarten ~ leerstelle_vorsatz_3 ~ satznummer_vorsatz_3 ~ NEWLINE*
+}
+vorsatz = {vorsatz_1 ~ (vorsatz_2 ~ (vorsatz_3)?)?}
+
+// Nachsatz Anfang
+satzart_nachsatz = {"9999"}
+anzahl_saetze = {ASCII_DIGIT{10}}
+gesamtbeitrag = {ASCII_DIGIT{15}}
+gesamtbeitrag_brutto_inkasso = {ASCII_DIGIT{14}}
+vorzeichen_gesamtbeitrag = {"+"|"-"}
+gesamtprovision_betrag = {ASCII_DIGIT{14}}
+vorzeichen_gesamtprovison = {"+"|"-"}
+versicherungsleistungen = {ASCII_DIGIT{14}}
+vorzeichen_versicherungsleistungen = {"+"|"-"}
+schadenbearbeitungskosten = {ASCII_DIGIT{14}}
+vorzeichen_schadenbearbeitungskosten = {"+"|"-"}
+leerstelle_nachsatz = {ANY{157}}
+// Nachsatz Ende
+nachsatz = {
+    satzart_nachsatz ~ anzahl_saetze ~ geschaeftsstelle ~ gesamtbeitrag ~
+    gesamtbeitrag_brutto_inkasso ~ vorzeichen_gesamtbeitrag ~ gesamtprovision_betrag ~
+    vorzeichen_gesamtprovison ~ versicherungsleistungen ~ vorzeichen_versicherungsleistungen ~
+    schadenbearbeitungskosten ~ vorzeichen_schadenbearbeitungskosten ~ leerstelle_nachsatz ~ NEWLINE*
+}
+
+// Adressteil Teildatensatz 1 Anfang
+// Adressteil Teildatensatz 1 Ende
+
+vertrag = {
+    (partner)+ ~ allgemeiner_vertragsteil ~ (begleitdokumente_und_siganturen_vertrag)* ~
+    (klausel_datensatz)* ~ (rabatte_und_zuschlaege_vertrag)* ~ (sparte)+
+}
+partner = {
+    adressteil ~ (begleitdokumente_und_siganturen_partner)* ~ 
+    (klausel_datensatz_0350_partner)* ~ (rabatte_und_zuschlaege)*
+}
+
+adressteil = {("0100" ~ ANY{251} ~ ("1"|"2"|"3"|"4"|"5") ~ NEWLINE*)+}
+begleitdokumente_und_siganturen = {("0342" ~ ANY{251} ~ ("1"|"2"|"3") ~ NEWLINE*)+}
+begleitdokumente_und_siganturen_partner = {begleitdokumente_und_siganturen}
+begleitdokumente_und_siganturen_vertrag = {begleitdokumente_und_siganturen}
+klausel_datensatz_0350_partner = {("0350" ~ ANY{252} ~ NEWLINE*)+}
+klausel_datensatz = {klausel_datensatz_0350_partner}
+rabatte_und_zuschlaege = {("0390" ~ ANY{252} ~ NEWLINE*)+}
+rabatte_und_zuschlaege_vertrag = {rabatte_und_zuschlaege}
+allgemeiner_vertragsteil = {("0200" ~ ANY{252} ~ NEWLINE*)+}
+
+sparten_saetze = {("0210"|"0211"|"0350"|"0390"|"0220"|"0221"|"0225")}
+sparte = {sparten_saetze ~ ANY{252} ~ NEWLINE*}
+
+// Dummy für nicht interpretierte Zeilen
+zeile = _{ANY{256}}
+// Eigentliche GDV Grammatik
+gdv_datei = {
+    SOI ~ vorsatz ~ (vertrag)+ ~ nachsatz ~ EOI
+}
