@@ -1,0 +1,10 @@
+[package]
+name = "gdv_parser_struct"
+version = "0.1.0"
+authors = ["Alexander Ratajczak <a4blue@hotmail.de>"]
+edition = "2018"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+pest = "2.1"
+pest_derive = "2.1"

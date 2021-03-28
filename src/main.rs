@@ -1,74 +1,92 @@
-extern crate pest;
+extern crate chardetng;
 #[macro_use]
-extern crate pest_derive;
-use pest::iterators::Pair;
-use pest::Parser;
-use std::fs;
+extern crate clap;
+extern crate encoding;
+extern crate gdv_parser_struct;
+use clap::{App, Arg};
+use std::fs::File;
+use std::io::prelude::*;
+use std::path::Path;
 use std::time::Instant;
 
-#[derive(Parser)]
-#[grammar = "gdv.pest"]
-pub struct GDVParser;
-
-fn main() {
-    let now = Instant::now();
-    let gdv_file = fs::read_to_string("test.gdv").expect("File Error");
-    match GDVParser::parse(Rule::gdv_datei, &gdv_file) {
-        Ok(pairs) => {
-            let lines: Vec<_> = pairs.map(|pair| format_pair(pair, 0, true)).collect();
-            let lines = lines.join("\n");
-
-            print!("{}", lines);
-        }
-        Err(error) => {
-            print!("{}", error)
-        }
+arg_enum! {
+    #[derive(Debug)]
+    enum CharacterEncoding {
+        Utf8,
+        Guess
     }
-    println!("");
-    println!("Zeit:{} Sekunden", now.elapsed().as_secs_f64());
 }
 
-fn format_pair(pair: Pair<Rule>, indent_level: usize, is_newline: bool) -> String {
-    let indent = if is_newline {
-        "  ".repeat(indent_level)
-    } else {
-        "".to_string()
+fn main() {
+    let matches = App::new("GDV-Parser")
+        .version("0.1")
+        .author("Alexander Ratajczak <a4blue@hotmail.de>")
+        .about("Parses a GDV File")
+        .arg(
+            Arg::with_name("input")
+                .value_name("INPUT_FILE")
+                .default_value("test.gdv")
+                .help("Path to the GDV File"),
+        )
+        .arg(
+            Arg::with_name("output")
+                .value_name("OUTPUT_FILE")
+                .help("Not yet implemented. For now output ist stdOut"),
+        )
+        .arg(
+            Arg::with_name("format")
+                .short("f")
+                .long("format")
+                .value_name("FORMAT")
+                .help("Not yet implemented. Output Format(XML etc.)")
+                .takes_value(true),
+        )
+        .arg(
+            Arg::with_name("character-encoding")
+                .short("c")
+                .long("character")
+                .value_name("CHARACTER_ENCODING")
+                .help("Only Utf8 implemented. Sets the character Encoding of the Input.")
+                .possible_values(&CharacterEncoding::variants())
+                .case_insensitive(true)
+                .default_value("Utf8")
+                .takes_value(true),
+        )
+        .arg(
+            Arg::with_name("timing")
+                .short("t")
+                .long("timing")
+                .help("If set, Outputs the time it took to generate the GDV Structure"),
+        )
+        .get_matches();
+
+    let path = Path::new(matches.value_of("input").unwrap());
+    let display = path.display();
+    let mut file = match File::open(&path) {
+        Err(why) => panic!("Couldn't open {}: {}", display, why),
+        Ok(file) => file,
     };
 
-    let children: Vec<_> = pair.clone().into_inner().collect();
-    let len = children.len();
-    let children: Vec<_> = children
-        .into_iter()
-        .map(|pair| {
-            format_pair(
-                pair,
-                if len > 1 {
-                    indent_level + 1
-                } else {
-                    indent_level
-                },
-                len > 1,
-            )
-        })
-        .collect();
+    let character_encoding = value_t!(matches, "character-encoding", CharacterEncoding).unwrap();
+    let gdv_string = match character_encoding {
+        CharacterEncoding::Utf8 => {
+            let mut string_buffer = String::new();
+            if let Err(why) = file.read_to_string(&mut string_buffer) {
+                panic!("Couldn't read {}: {}", display, why)
+            };
+            string_buffer
+        }
+        CharacterEncoding::Guess => String::new(),
+    };
 
-    let dash = if is_newline { "- " } else { "" };
+    let now = if matches.is_present("timing") {
+        Option::from(Instant::now())
+    } else {
+        Option::None
+    };
 
-    match len {
-        0 => format!(
-            "{}{}{:?}: {:?}",
-            indent,
-            dash,
-            pair.as_rule(),
-            pair.as_span().as_str()
-        ),
-        1 => format!("{}{}{:?} > {}", indent, dash, pair.as_rule(), children[0]),
-        _ => format!(
-            "{}{}{:?}\n{}",
-            indent,
-            dash,
-            pair.as_rule(),
-            children.join("\n")
-        ),
-    }
+    gdv_parser_struct::parse(gdv_string);
+    if let Some(time) = now {
+        println!("Time:{} Seconds", time.elapsed().as_secs_f64())
+    };
 }
